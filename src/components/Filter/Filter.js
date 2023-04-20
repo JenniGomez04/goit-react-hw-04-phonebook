@@ -3,10 +3,6 @@ import React from 'react';
 import { Label, Input } from './Filter.styled';
 
 const Filter = ({ filter, onChange }) => {
-  const handleInputChange = (event) => {
-    const { value } = event.target;
-    onChange(value);
-  };
 
   return (
     <Label>
@@ -15,14 +11,14 @@ const Filter = ({ filter, onChange }) => {
         type="text"
         name="filter"
         value={filter}
-        onChange={handleInputChange}
+        onChange={onChange}
       />
     </Label>
   );
 };
 
 Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
+  filter: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
