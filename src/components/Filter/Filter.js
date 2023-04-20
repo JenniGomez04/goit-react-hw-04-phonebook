@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import { Label, Input } from './Filter.styled';
 
 const Filter = ({ filter, onChange }) => {
-  const [updatedFilter, setUpdatedFilter] = useState(filter);
-
   const handleInputChange = (event) => {
     const { value } = event.target;
-    setUpdatedFilter(value);
     onChange(value);
   };
 
@@ -17,7 +14,7 @@ const Filter = ({ filter, onChange }) => {
       <Input
         type="text"
         name="filter"
-        value={updatedFilter}
+        value={filter}
         onChange={handleInputChange}
       />
     </Label>
@@ -29,5 +26,39 @@ Filter.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-export default Filter
+export default Filter;
+
+
+
+
+/*import PropTypes from 'prop-types';
+import React from 'react';
+import { Label, Input } from './Filter.styled';
+
+const Filter = ({ value, onChange }) => {
+  const handleInputChange = (event) => {
+    const { value } = event.target;
+    onChange(value);
+  };
+
+  return (
+    <Label>
+      Find contacts by name
+      <Input
+        type="text"
+        name="filter"
+        value={value}
+        onChange={handleInputChange}
+      />
+    </Label>
+  );
+};
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default Filter;*/
+
 
